@@ -1,0 +1,21 @@
+sinclair:
+  name: The Sinclair
+  venue_type: Club
+  street_address: 52 Church Street
+  city: Boston
+  state_region: MA
+  postal_code: 02138
+  country: US
+  capacity: 550
+  website: http://www.sinclaircambridge.com
+
+international_venue:
+  name: Sydney Opera House
+  venue_type: Concert Hall
+  street_address: Bennelong Point
+  city: Sydney
+  state_region:
+  postal_code: NSW 2000
+  country: Australia
+  capacity: 5,738
+  website: http://www.sydneyoperahouse.com

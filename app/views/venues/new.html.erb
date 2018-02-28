@@ -1,0 +1,50 @@
+<% provide(:title, "Add Venue") %>
+
+<h2 class="index-title">Add Venue</h2>
+
+  <div class=summary>
+    <%= form_for @venue do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Name *</h4>
+          <%= f.text_field :name, class: 'form-control',
+                                  placeholder: "ex: 'House of Blues'" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Address</h4>
+          <%= f.text_field :street_address, class: 'form-control',
+                           placeholder: 'Street Address *' %>
+          <%= f.text_field :city, class: 'form-control',
+                                  placeholder: 'City *' %>
+
+          <%= f.text_field :state_region, class: 'form-control',
+                                          placeholder: 'State / Region' %>
+          <%= f.text_field :postal_code, class: 'form-control',
+                                         placeholder: 'Postal Code' %>
+
+          <%= f.text_field :country, class: 'form-control',
+                           placeholder: 'Country *' %>
+        </div>
+
+        <div class="col-md-6">
+          <h4>Information</h4>
+          <%= f.number_field :capacity, class: 'form-control',
+                           placeholder: 'Capacity *', min: 0,
+                                                      max: 500000 %>
+
+          <%= f.text_field :website, class: 'form-control',
+                           placeholder: 'Website' %>
+        </div>
+      </div>
+
+
+      <div class="show-edit-submit-margin">
+        <%= f.submit 'Add Venue', class: 'btn label-warning' %>
+      </div>
+    <% end  %>
+  </div>

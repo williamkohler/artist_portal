@@ -1,0 +1,26 @@
+<% provide(:title, "Add Contact") %>
+
+<h2 class="index-title">Add Contact</h2>
+
+<div class="summary">
+
+<%= form_for @contact do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_field :name, placeholder: "Name *",
+                                class: "form-control" %>
+
+  <%= f.text_field :phone, placeholder: :phone,
+                   class: "form-control" %>
+
+  <%= f.text_field :mobile, placeholder: :mobile,
+                   class: "form-control" %>
+
+  <%= f.text_field :email, placeholder: "Email *",
+                   class: "form-control" %>
+
+  <%= f.submit 'Create', class: 'btn label-warning' %>
+
+<% end %>
+
+</div>

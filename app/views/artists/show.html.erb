@@ -1,0 +1,28 @@
+<% provide(:title, @artist.name) %>
+
+<%= render 'artist_itin_header' %>
+
+  <% if @artist.from_hubspot? %>
+    <div class="artist-cal">
+      <% if @cal_selection == "month" %>
+        <%= render 'shared/hubspot_month_cal' %>
+      <% else %>
+        <%= render 'shared/hubspot_list_cal' %>
+      <% end %>
+    </div>
+  <% else %>
+    <% if @cal_selection == "month" %>
+      <%= render 'shared/month_cal' %>
+    <% else %>
+      <%= render 'shared/list_cal' %>
+    <% end %>
+  <% end %>
+  <% if @artist.from_hubspot? %>
+    <div>
+      <%= render partial: "shows/hubspot_show",
+          collection: @shows, as: :deal %>
+    </div>
+  <% else %>
+    <%= render partial: "shows/show_summary",
+               collection: @shows, as: :deal %>
+  <% end %>

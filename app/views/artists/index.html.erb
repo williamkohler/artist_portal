@@ -1,0 +1,16 @@
+<% provide(:title, "Artists") %>
+  <section class="artist-index-wrapper">
+    <% @artists.each do |artist| %>
+      <div class="artist-box">
+        <%= link_to (album_for artist, size: 2), artist_path(artist)%>
+        <span class="artist-name"><%= link_to artist.name,
+                                      artist_path(artist) %></span><br>
+        <span class="artist-edit">
+          <%= link_to 'edit', edit_artist_path(artist) %>
+        </span>
+      </div>
+    <% end %>
+  </section>
+  <section class="center orange-text">
+    <%= will_paginate %>
+  </section>

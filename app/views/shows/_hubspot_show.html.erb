@@ -1,0 +1,130 @@
+<div id="<%= deal.deal_id %>" class="summary">
+  <div>
+    <h3><%= format_date deal[:start_date] %></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Venue</h4>
+      <b>
+        <span><%= deal[:venue_name] %></span><br>
+        <span><%= address_builder deal %></span>
+      </b>
+    </div>
+    <div class="col-md-6">
+      <h4>Compensation</h4>
+      <span>
+        <b>
+        <%= "#{number_to_currency deal[:amount]} #{deal[:backend].downcase}" %>
+        </b>
+      </span><br>
+      <span>HOTEL:
+        <b><%= deal[:hotel] %></b>
+      </span><br>
+      <span>GROUND:
+        <b><%= deal[:local_ground_transportation] %></b>
+      </span><br>
+      <span>BACKLINE:
+        <b><%= deal[:backline] %></b>
+      </span><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Engagement Information</h4>
+      <span>START TIME(S):
+        <b><%= deal[:start_time] %></b>
+      </span><br>
+      <span>SET LENGTH(S):
+        <b><%= deal[:set_length] %></b>
+      </span><br>
+      <span>NUMBER OF SHOWS:
+        <b><%= deal[:number_of_shows] %></b>
+      </span><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Contract</h4>
+      <span>AGENT:
+        <b><%= Show.hubspot_owner deal[:hubspot_owner_id] %></b>
+      </span><br>
+      <span>CONTRACT #:
+        <b><%= deal[:contract_] %></b>
+      </span><br>
+      <span>CONTRACT DUE:
+        <b><%= format_date deal[:contract_due_from_promoter] %></b>
+      </span><br>
+      <span>SIGNED BY PROMOTER:
+        <b><%= format_date deal[:contract_received] %></b>
+      </span><br>
+      <span>SIGNED BY ARTIST:
+        <b><%= format_date deal[:contract_received_from_artist] %></b>
+      </span><br>
+    </div>
+    <div class="col-md-6">
+      <h4>Deposit</h4>
+      <% if Show.deposit_overdue? deal %>
+        <span>DEPOSIT DUE DATE:
+          <b class="dep-overdue"><%= format_date deal[:deposit_due] %></b>
+        </span><br>
+        <span>DEPOSIT DUE:
+          <b class="dep-overdue">
+            <%= deal[:deposit_amount_requested] %></h5>
+        </b>
+      </span><br>
+    <% else %>
+      <span>DEPOSIT DUE DATE:
+        <b><%= format_date deal[:deposit_due] %></b>
+      </span><br>
+      <span>DEPOSIT DUE:
+        <b>
+          <%= deal[:deposit_amount_requested] %></h5>
+      </b>
+    </span><br>
+  <% end %>
+  <span>DEPOSIT RECEIVED:
+    <b><%= number_to_currency deal[:deposit_amount_received] %></b>
+  </span><br>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+  <h4>Ticket Information</h4>
+  <span>TICKET SCALE:
+    <b><%= deal[:ticket_prices_and_scaling] %></b>
+  </span><br>
+  <span>CAPACITY:
+    <b><%= deal[:capacity] %></b>
+  </span><br>
+  <span>GROSS POTENTIAL:
+    <b><%= deal[:gross_potential] %></b>
+  </span><br>
+</div>
+<div class="col-md-6">
+  <h4>Annouce Dates</h4>
+  <span>ANNOUNCE:
+    <b><%= format_date deal[:announce_date] %></b>
+  </span><br>
+  <span>ON SALE:
+    <b><%= deal[:on_sale] %></b>
+  </span><br>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+  <h4>Promoter</h4>
+  <span>
+    <b><%= deal[:production_contact] %></b>
+  </span><br>
+  <span>
+    <b><%= deal[:production_contact_phone] %></b>
+  </span><br>
+  <span>
+    <b><%= deal[:production_contact_email] %></b>
+  </span><br>
+</div>
+<div class="col-md-6">
+  <h4>Production</h4>
+</div>
+</div>
+</div>

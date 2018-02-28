@@ -1,0 +1,8 @@
+<% provide(:title, 'Venues') %>
+  <div class="row">
+    <div class="col-md-5">
+      <h2 class="index-title">Venues</h2>
+      <%= render @venues %>
+    </div>
+  </div>
+  <%= will_paginate class: 'center' %>

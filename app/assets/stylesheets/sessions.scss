@@ -1,0 +1,50 @@
+.session-wrapper {
+  height: 75vh;
+  background-position: center top;
+  background-image: image-url("hannu-pekka-peuranen-stage");
+}
+
+.sessions-log-in {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+/* Login */
+.login-style {
+  padding: 0;
+  margin: 0;
+}
+
+.login-cover {
+  background-size: cover;
+  box-sizing: border-box;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  display: flex;
+}
+
+.login-image {
+  background-position: center top;
+  background-image: image-url("hannu-pekka-peuranen-stage");
+}
+
+.session-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2% 6%;
+  font-family: 'Raleway', helvetica, sans;
+
+  a {
+    &:hover {
+      color: #C86BFA;
+      text-decoration: none;
+    }
+  }
+}
+
+.submit-padding {
+  margin-top: 10px;
+}

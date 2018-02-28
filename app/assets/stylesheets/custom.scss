@@ -1,0 +1,566 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* mixins, variables, etc. */
+$gray-medium-light: #eaeaea;
+$application-green: #104B34;
+$lighter-green: #4AB68C;
+$app-grey: #F8F8F8;
+$app-orange: #FD9630;
+$app-blue: #3097fd;
+$app-pink: #fd3097;
+$app-yellow: #FCF8E4;
+@mixin box-sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -box-sizing: border-box;
+}
+
+/* Miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box-sizing;
+}
+
+/* Universal */
+body {
+  font-size: 20px;
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.right-float{
+  float: right;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* Header */
+#logo {
+  color: white;
+  float: left;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1; // not listed in example.
+  margin: 10px;
+  padding-top: 9px;
+  text-transform: uppercase;
+}
+
+#logo:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.header-logo {
+  a {
+    background-image: image-url("drum");
+    display: inline-block;
+    height: 50px;
+    text-indent: -9999px;
+    width: 50px;
+
+    &:hover {
+      background-image: image-url("orange-drum-and-sticks");
+    }
+  }
+}
+
+/* Footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+
+  a {
+    color: $gray;
+
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+/* Sidebar */
+aside {
+  section.user-info {
+    margin-top: 20px;
+  }
+
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar-edit {
+  margin-top: 15px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+.user-avatars {
+  overflow: auto;
+  margin-top: 10px;
+
+  .gravatar {
+    margin: 1px;
+  }
+
+  a {
+    padding: 0;
+  }
+}
+
+/* Forms */
+input,
+select .uneditable-input,
+textarea {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box-sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error-explanation {
+  color: red;
+
+  ul {
+    color: #A74544;
+    margin: 0 0 30px;
+  }
+}
+
+.field-with-errors {
+  @extend .has-error;
+
+  .form-control {
+    color: $state-danger_text;
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* Users index */
+.user-index-name {
+  h4 {
+    a {
+      color: black;
+      &:hover {
+        color: $app-pink;
+      }
+    }
+  }
+}
+
+/* Artists */
+.add-artist {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding-bottom: 2em;
+  padding-top: 2em;
+
+  li {
+    border-top: 1px solid $gray-lighter;
+    background-color: blue;
+    overflow: auto;
+    padding: 10px 0;
+  }
+}
+
+.artist-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding-bottom: 2em;
+
+  li {
+    border-bottom: 1px solid $gray-lighter;
+    overflow: auto;
+    padding: 10px 0;
+
+    &:hover {
+      a {
+        color: $application-green;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.unfollowed-artists {
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+}
+
+.find-user {
+  float: left;
+}
+
+
+/* Summary */
+
+.summary {
+  border: 2px solid $app-orange;
+  display: block;
+  margin-bottom: 2em;
+  padding: 2em;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    display: block;
+    padding: 6px;
+    background-color: $gray-lighter;
+  }
+
+  span {
+    padding-left: 6px;
+  }
+
+  input {
+    margin: 10px 0;
+  }
+  a {
+    color: inherit;
+    &:hover
+    {
+      color: $app-orange;
+      text-decoration: none;
+    }
+  }
+}
+
+.dep-overdue {
+  color: rgba(244, 66, 66, 0.9);
+}
+
+/* Show Upload */
+.show-upload-form {
+  margin-top: 2em;
+  padding-top: 1em;
+
+  input {
+    padding: 6px 0;
+  }
+}
+
+.show-upload-info {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Raleway */
+.raleway {
+  font-family: 'Raleway', helvetica, sans;
+}
+
+.form-margin {
+  padding: 0 8%;
+
+  input {
+    margin-bottom: 6px;
+  }
+}
+/* Navigation */
+.test-nav {
+  margin: 0 2px;
+}
+
+/* Stats */
+.stat-count {
+  color: $gray-light;
+}
+
+.border-test {
+  border: 1px solid black;
+}
+
+.orange-border {
+  border: 2px solid $app-orange;
+}
+
+.album {
+  float: left;
+  margin: 6px 0;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.artist-header {
+  img {
+    display: block;
+    float: right;
+  }
+
+  a {
+    &:hover {
+      color: $app-orange;
+      text-decoration: none;
+    }
+  }
+
+  h5 {
+    color: gray;
+  }
+}
+
+.artist-grid {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Landing Page */
+.landing-style {
+  padding: 0;
+  margin: 0;
+}
+
+.landing-image {
+  background-color: #c7dbfc;
+  background-size: cover;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Raleway', helvetica, sans;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100vw;
+  span {
+    font-size: 1.2em;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: #C86BFA;
+      text-decoration: none;
+    }
+  }
+
+  h1 {
+    display: block;
+    margin: 0;
+    padding-top: 10%;
+  }
+
+  h4 {
+    display: block;
+    padding-top: 3%;
+
+    &:hover {
+      color: #FCA657;
+      text-decoration: none;
+    }
+  }
+}
+
+.home-image {
+  background-position: center top;
+  background-image: image-url("hannu-pekka-peuranen-stage");
+}
+
+/* Testing */
+.black-border {
+  border: 1px solid black;
+}
+
+/* Calendars */
+
+.month-cal-wrapper {
+  margin-bottom: 12px;
+}
+
+/* Venue & Contact Wrapper */
+
+.record-wrapper {
+  margin-bottom: 30px;
+  padding: 0 2px 2px;
+  h4 {
+    display: block;
+    padding: 6px;
+    border-bottom: 1.5px solid $app-orange;
+  }
+  span {
+    padding-left: 6px;
+  }
+  a {
+    color: inherit;
+    &:hover {
+      color: $app-orange;
+      text-decoration: none;
+    }
+  }
+  h5 {
+    padding-left: 6px;
+  }
+  ul {
+    list-style: none;
+    li {
+      padding: 0 16px;
+    }
+  }
+}
+
+.faded-title {
+  color: grey;
+}
+
+.index-title {
+  text-align: left;
+  margin-bottom: 1.2em;
+  color: $app-blue;
+  a {
+    color: $app-blue;
+    &:hover {
+      color: $app-orange;
+      text-decoration: none;
+    }
+  }
+}
+
+.record-title {
+  display: block;
+  padding: 6px;
+  background-color: $gray-lighter;
+  text-align: left;
+}

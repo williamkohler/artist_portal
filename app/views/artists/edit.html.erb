@@ -1,0 +1,45 @@
+<% provide(:title, "Edit Artist") %>
+
+<h2 class="index-title">Edit Artist</h2>
+
+<div class="summary">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3><%= @artist.name %></h3>
+    </div>
+    <div class="col-md-6">
+
+      <% if current_user.admin %>
+
+      <span class="right-float artist-delete">
+        <%= link_to 'delete', @artist, method: :delete,
+                                        data: { confirm: 'You sure?' } %>
+      </span><br>
+      <% end %>
+    </div>
+  </div>
+
+<%= form_for @artist do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.text_field :name, placeholder: " Artist name *",
+                                class: "form-control" %>
+
+  <%= f.text_field :contact_name, placeholder: 'Contact name',
+                   class: "form-control" %>
+
+  <%= f.text_field :contact_phone, placeholder: 'Contact phone',
+                   class: "form-control" %>
+
+  <%= f.text_field :contact_email, placeholder: 'Contact email',
+                   class: "form-control" %>
+
+ <%= f.text_field :website, placeholder: 'Website',
+                  class: "form-control" %>
+
+  <%= f.submit 'Update', class: 'btn label-warning' %>
+
+<% end %>
+
+</div>

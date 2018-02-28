@@ -1,0 +1,17 @@
+<% provide(:title, 'Reset password') %>
+  <div class="login-cover login-image sessions-log-in">
+    <div class="session-backdrop">
+      <h1>Reset Password</h1>
+      <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Update password", class: 'btn label-warning' %>
+    <% end %>
+  </div>
+</div>

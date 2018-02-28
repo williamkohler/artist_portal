@@ -1,0 +1,5 @@
+<h2 class="index-title">
+  <%= link_to "Shows at #{@venue.name}", (venue_path @venue) %>
+</h2>
+<%= render partial: 'shows/show_summary', collection: @shows, as: :deal %>
+<%= will_paginate @shows, class: 'center' %>

@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bill:
+  name: Bill Kohler
+  job_title: Developer
+  phone: 123-456-7890
+  mobile: 234-567-8901
+  email: bill@example.com
+
+invalid_contact:
+  name: Invalid Contact
+  email: example.com

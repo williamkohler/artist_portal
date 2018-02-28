@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_id: 1
+  venue_id: 2
+
+two:
+  contact_id: 3
+  venue_id: 4

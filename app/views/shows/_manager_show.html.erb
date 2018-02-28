@@ -1,0 +1,91 @@
+<div class="manager-show">
+
+  <div>
+    <h4 class="center"><%= format_date deal[:start_date] %></h4>
+  </div>
+
+  <div>
+
+    <ul>
+      <li>
+        <h4>Venue</h4>
+      </li>
+      <li><%= deal[:venue_name] %></li>
+      <li><%= deal[:venue_city] %>,
+        <%= deal[:venue_state] %></li>
+      <li><%= deal[:sellable_capacity] %></li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li>
+        <h4>Ticket Scale</h4>
+      </li>
+      <li><%= deal[:sellable_capacity] %></li>
+      <li><%= deal[:ticket_prices_and_scaling] %></li>
+      <li><%= deal[:gross_potential] %>(gross potential)</li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li>
+        <h4>Show</h4>
+      </li>
+      <li><%= deal[:start_time] %></li>
+      <li><%= deal[:set_length] %></li>
+      <li><%= deal[:number_of_shows] %></li>
+      <!-- <li><%= deal[:other_acts] %></li> -->
+      <li>announce:
+        <%= deal[:announce_date] %></li>
+      <li>on sale:
+        <%= deal[:on_sale] %></li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li>
+        <h4>Due Dates</h4>
+      </li>
+      <li>Contract Due:
+        <%= format_date deal[:contract_due_from_promoter] %></li>
+      <li>Contract Partially Executed:
+        <%= format_date deal[:contract_received] %></li>
+      <li>Contract Fully Executed:
+        <%= format_date deal[:contract_received_from_artist] %></li>
+      <li>Deposit Amount Due:
+        <%= deal[:deposit_amount_requested] %></li>
+      <li>Deposit Due Date:
+        <%= format_date deal[:deposit_due] %></li>
+      <li>Deposit Amount Received:
+        <%= number_to_currency deal[:deposit_amount_received] %></li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li>
+        <h4>Compensation</h4>
+      </li>
+      <li><%= number_to_currency deal[:amount] %>
+        <%= deal[:backend] %></li>
+      <li><%= deal[:hotel] %></li>
+      <li><%= deal[:local_ground_transportation] %></li>
+      <li><%= deal[:backline] %></li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li></li>
+      <li>
+        <h4>Deal</h4>
+      </li>
+      <li><%= deal[:hubspot_owner_id] %></li>
+      <li><%= deal[:contract_] %></li>
+    </ul>
+  </div>
+
+</div>

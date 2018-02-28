@@ -1,0 +1,56 @@
+<div class="row artist-header">
+  <div class="col-md-8">
+    <h1 class="left-text"><%= @user.name %></h1>
+    <% if @user != current_user %>
+      <h5><%= @user.email %></h5>
+      <h5><%= link_to 'Delete User',  { action: :destroy, id: @user.id },
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+      </h5>
+    <% end %>
+
+    <% if @user.admin %>
+      <h5><%= link_to 'Remove as Administrator',
+      user_path(@user, admin: false), method: :patch %></h5>
+    <% else %>
+      <h5><%= link_to 'Set as Administrator',
+      user_path(@user, admin: true), method: :patch %></h5>
+    <% end %>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle"
+      type="button" id="dropdownMenu1" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="true">
+        Assign Artist
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @user.unassigned_artists.each do |artist| %>
+          <li>
+            <%= link_to artist.name,
+            artist_relationships_path(artist_id: artist.id,
+                                      user_id:   @user.id),
+                                      method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<div class="artist-user-wrapper">
+  <% @user.assigned_artists.each do |artist| %>
+    <div class="artist-box">
+      <%= link_to (album_for artist, size: 2), artist_path(artist)%>
+      <span class="artist-name"><%= link_to artist.name,
+                                    artist_path(artist) %></span><br>
+      <span class="artist-delete">
+        <%= link_to 'Remove',
+        artist_relationship_path(
+          @user.artist_relationship.find_by(user_id:   @user.id,
+                                            artist_id: artist.id)),
+                                            method: :delete %>
+      </span>
+    </div>
+  <% end %>
+</div>

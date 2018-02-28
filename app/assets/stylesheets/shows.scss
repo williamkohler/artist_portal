@@ -1,0 +1,49 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+$gray-medium-light: #eaeaea;
+
+.upload-report {
+  background-color: $gray-lighter;
+  border: 2px solid $gray-medium-light;
+  display: block;
+  list-style: none;
+  margin-bottom: 2em;
+  padding-right: 2em;
+
+  li {
+    overflow: auto;
+  }
+}
+
+.manager-show {
+  align-content: space-around;
+  background-color: $gray-lighter;
+  border: 2px solid $gray-medium-light;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 2em;
+  padding: 1em 2em 1em 0;
+  overflow: hidden;
+
+  div {
+    margin-bottom: 2px;
+    border: 1px solid blue;
+    display: inline;
+  }
+
+  li {
+    overflow: auto;
+  }
+}
+
+.cal-container {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+.show-edit-submit-margin {
+  margin-top: 20px;
+}

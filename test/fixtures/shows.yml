@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  deal_id: 1
+  artist: radiohead
+  start_date: <%= Date.today %>
+
+two:
+  deal_id: 1
+  artist_id: james
+  start_date: <%= Date.today %>

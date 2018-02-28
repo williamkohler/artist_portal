@@ -1,0 +1,16 @@
+<div id="articles" class="month-cal-wrapper">
+  <%= calendar @date do |date| %>
+  <%= date.day %><br>
+  <% if @shows_hash[date.in_time_zone] %>
+    <% @shows_hash[date.in_time_zone].each do |show| %>
+    <div>
+      <b><span><%= link_to show.venue.name, artist_path(@artist,
+                                              date:  params[:date],
+                                              anchor: show.id,
+                                              cal: @cal_selection) %></span><br>
+      <span><%= "#{show.venue.city} #{show.venue.state_region}" %></span>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>

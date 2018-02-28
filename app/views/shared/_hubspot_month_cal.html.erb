@@ -1,0 +1,16 @@
+<div id="articles">
+  <%= calendar @date do |date| %>
+  <%= date.day %><br>
+  <% if @sorted_shows[date]%>
+    <% @sorted_shows[date].each do |show| %>
+    <div>
+      <b><span><%= link_to show[:venue_name], artist_path(@artist,
+                                              date:  params[:date],
+                                              anchor: show.deal_id) %>
+        </span><br>
+      <span><%= address_builder show %></span>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>

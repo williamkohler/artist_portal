@@ -1,0 +1,15 @@
+<div class="cal-wrapper">
+  <h4>Calendar</h4>
+  <%= month_calendar events: @shows do |date, shows| %>
+  <%= date.day %>
+  <% shows.each do |show| %>
+    <br>
+    <% hubspot_show = Show.find_hubspot_deal(show.deal_id) %>
+      <b><%= hubspot_show[:venue_name] %>
+        <br>
+        <%= hubspot_show[:venue_city] %>,
+        <%= hubspot_show[:venue_state] %>
+      </b>
+    <% end %>
+  <% end %>
+</div>

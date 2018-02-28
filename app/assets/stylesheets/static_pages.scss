@@ -1,0 +1,96 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.full-hero {
+  background-color: #c7dbfc;
+  background-size: cover;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Raleway', helvetica, sans;
+  height: 70vh;
+  margin: 1vh 0 2vh;
+  padding-top: 5vh;
+  text-transform: uppercase;
+}
+
+.hero-home {
+  background-position: center top;
+  background-image: image-url("hannu-pekka-peuranen-stage");
+}
+
+/* Testing */
+.test-link {
+  background: yellow;
+  border: 1px solid black;
+  display: block;
+  height: 100px;
+  width: 100px;
+  text-indent: -9999px;
+  white-space: nowrap;
+  margin: 10px;
+
+  &:hover {
+    background-image: image-url("nic-cage");
+  }
+}
+
+.test-hero {
+  background-color: #c7dbfc;
+  background-size: cover;
+  box-sizing: border-box;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Raleway', helvetica, sans;
+}
+
+.test-div {
+  padding: 2em;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.red {
+  color: red;
+}
+
+/* Calenders */
+.cal-wrapper {
+  border-bottom: 1px solid $gray-lighter;
+  margin: 15px 0;
+  padding: 0 1em;
+
+  h4 {
+    border-bottom: 1px solid $gray-lighter;
+    display: block;
+    padding-bottom: 4px;
+  }
+
+  td {
+    font-size: 0.8em;
+  }
+}
+
+.flex-wrapper {
+  display: flex;
+  border: 2px solid black;
+  justify-content: space-around;
+  div {
+    border: 0.2px solid grey;
+    margin: 0 2px;
+  }
+}
+
+.about-summary {
+  image {
+    height: 20%;
+    margin: 2px;
+    padding: 2px;
+    width: 20%;
+  }
+}

@@ -1,0 +1,16 @@
+<div class="test-artist-header-wrapper">
+  <div class="left-artist-header">
+    <h1 class="left-text">Artist Name</h1>
+    <h5>upcoming engagements</h5>
+    <h5>upcoming engagemtents this month</h5>
+    <h4>
+      <%= link_to "<", '#' %>
+      <%= 'February 2018' %>
+      <%= link_to ">", '#' %>
+    </h4>
+    <b><%= link_to 'switch calendar view', '#' %></b>
+  </div>
+  <div class="right-artist-header">
+    <%= album_for Artist.first, size: 2 %>
+  </div>
+</div>

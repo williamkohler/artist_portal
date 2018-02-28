@@ -1,0 +1,33 @@
+<% if params[:controller] == "users" %>
+  <%= form_tag users_path, method: 'get', class: "navbar-form navbar-left" do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Find user" %>
+  </div>
+  <div class="form-group"><%= submit_tag 'Search', name: nil, class: "btn" %></div>
+<% end %>
+
+<% elsif params[:controller] == "venues" %>
+  <%= form_tag venues_path, method: 'get', class: "navbar-form navbar-left" do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Find venue" %>
+  </div>
+  <div class="form-group"><%= submit_tag 'Search', name: nil, class: "btn" %></div>
+<% end %>
+
+
+<% elsif params[:controller] == "contacts" %>
+  <%= form_tag contacts_path, method: 'get', class: "navbar-form navbar-left" do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Find contact" %>
+  </div>
+  <div class="form-group"><%= submit_tag 'Search', name: nil, class: "btn" %></div>
+<% end %>
+
+<% else %>
+<%= form_tag artists_path, method: 'get', class: "navbar-form navbar-left" do %>
+<div class="form-group">
+  <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Find artist" %>
+</div>
+<div class="form-group"><%= submit_tag 'Search', name: nil, class: "btn" %></div>
+<% end %>
+<% end %>

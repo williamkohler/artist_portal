@@ -1,0 +1,138 @@
+<% provide(:title, "Add Show") %>
+
+<h2 class="index-title">Add Show</h2>
+
+  <div class=summary>
+    <%= form_for @show do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Artist</h4>
+        <%= f.select :artist_id,
+            @artists.collect { |artist| [artist.name, artist.id] },
+            { prompt: 'Selection *' },
+            { class: 'form-control' } %>
+      </div>
+
+      <div class="col-md-6">
+        <h4>Venue</h4>
+        <%= f.select :venue_id,
+            @venues.collect { |venue| [venue.summary, venue.id] },
+            { prompt: 'Selection *' },
+            { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Compensation</h4>
+
+        <%= f.number_field :fee, class: 'form-control', placeholder: 'Fee *',
+                                 min: '0' %>
+
+        <%= f.text_field :backend, class: 'form-control',
+                                   placeholder: 'Backend *' %>
+
+        <%= f.text_field :hotel, class: 'form-control', placeholder: 'Hotel' %>
+        <%= f.text_field :ground, class: 'form-control',
+                                  placeholder: 'Local Ground Transportation' %>
+
+        <%= f.text_field :backline, class: 'form-control',
+                                    placeholder: 'Backline' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Engagement Information</h4>
+
+        <%= f.text_field :start_date, class: 'form-control',
+                                        placeholder: 'Start Date *',
+                                        onfocus: "(this.type='date')",
+                                        onblur: "(this.type='text')" %>
+
+        <%= f.text_field :end_date, class: 'form-control',
+                                        placeholder: 'End Date (if applicable)',
+                                        onfocus: "(this.type='date')",
+                                        onblur: "(this.type='text')" %>
+
+
+        <%= f.text_field :start_time, class: 'form-control',
+                                        placeholder: 'Start Time(s) *' %>
+
+        <%= f.text_field :set_length, class: 'form-control',
+                                      placeholder: 'Set Length(s) *' %>
+
+        <%= f.number_field :number_of_shows, class: 'form-control',
+                                           min: '0',
+                                           placeholder: 'Number of Shows *' %>
+      </div>
+
+      <div class="col-md-6">
+        <h4>Contract & Deposit</h4>
+        <%= f.text_field :agent, class: 'form-control', placeholder: 'Agent *' %>
+        <%= f.text_field :contract_due, class: 'form-control',
+                                        placeholder: 'Contract Due *',
+                                        onfocus: "(this.type='date')",
+                                        onblur: "(this.type='text')" %>
+
+        <%= f.text_field :deposit_due_date, class: 'form-control',
+                                            placeholder: 'Deposit Due Date',
+                                            onfocus: "(this.type='date')",
+                                            onblur: "(this.type='text')" %>
+
+       <%= f.number_field :deposit_amount_due,
+                          placeholder: 'Deposit Amount Due',
+                          class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Ticket Information</h4>
+        <%= f.text_field :ticket_scale, class: 'form-control',
+                                        placeholder: 'Ticket Scale *' %>
+
+        <%= f.text_field :capacity, class: 'form-control',
+                                    placeholder: 'Capacity *' %>
+
+        <%= f.text_field :gross_potential, class: 'form-control',
+                                           placeholder: 'Gross Potential *'%>
+      </div>
+
+      <div class="col-md-6">
+        <h4>Announce Dates</h4>
+        <%= f.text_field :announce, class: 'form-control',
+                                    placeholder: 'Announce Date',
+                                    onfocus: "(this.type='date')",
+                                    onblur: "(this.type='text')" %>
+
+        <%= f.text_field :on_sale, class: 'form-control',
+                                    placeholder: 'On Sale Date',
+                                    onfocus: "(this.type='date')",
+                                    onblur: "(this.type='text')" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Promoter</h4>
+        <%= f.select :promoter_id,
+            @contacts.collect { |contact| [contact.summary, contact.id] },
+            { prompt: 'Selection *' },
+            { class: 'form-control' } %>
+      </div>
+      <div class="col-md-6">
+        <h4>Production</h4>
+        <%= f.select :production_id,
+        @contacts.collect { |contact| [contact.summary, contact.id] },
+        { prompt: 'Selection *' },
+        { class: 'form-control' } %>
+      </div>
+    </div>
+
+    <div class="show-edit-submit-margin">
+      <%= f.submit 'Add Show', class: 'btn label-warning' %>
+    </div>
+  <% end %>
+</div>

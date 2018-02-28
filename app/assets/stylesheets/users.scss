@@ -1,0 +1,38 @@
+$app-green: #104B34;
+$app-grey: #F8F8F8;
+$app-orange: #FD9630;
+
+.user-list {
+  li {
+    margin-left: 0;
+    margin-right: 0;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    &:hover {
+      a {
+        color: $app-orange;
+      }
+    }
+  }
+}
+
+.user-stats {
+  text-align: right;
+}
+
+.user-wrapper {
+  border-bottom: 2px solid $app-grey;
+  ul {
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+    &:hover {
+      color: $app-orange;
+    }
+  }
+}

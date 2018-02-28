@@ -1,0 +1,30 @@
+bill:
+  name: Bill Kohler
+  email: bkohler4@gmail.com.com
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+standard:
+  name: Standard User
+  email: user@example.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+admin:
+  name: Admin User
+  email: admin@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+other:
+  name: Other User
+  email: other@example.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+  activated: true
+  activated_at: <%= Time.zone.now %>

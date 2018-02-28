@@ -1,0 +1,33 @@
+<%= provide(:title, @contact.name) %>
+
+<h2 class="index-title">Contact</h2>
+<div class="row">
+  <div class="col-md-8">
+    <%= render @contact %>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle"
+      type="button" id="dropdownMenu1" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="true">
+        Connect Venue
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @contact.unconnected_venues.each do |venue| %>
+        <li><%= link_to venue.summary,
+          contact_venue_relationships_path( relationship:
+                                          { contact_id: @contact.id,
+                                            venue_id: venue.id } ),
+                                            method: :post %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="btn btn-defaul">
+
+    </div>
+  </div>
+  <div class="col-md-4">
+    <!-- <%= render @contact.venues %> -->
+    <%= render partial: 'venues/venue_summary', collection: @contact.venues, as: :venue %>
+  </div>
+</div>

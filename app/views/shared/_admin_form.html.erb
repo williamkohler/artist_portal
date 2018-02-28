@@ -1,0 +1,11 @@
+<% if @user.admin %>
+  <%= form_for(@user, remote: true) do |f| %>
+  <div><%= hidden_field_tag :admin %></div>
+  <%= f.submit 'Remove Admin', class: "btn btn-outline-primary" %>
+<% end %>
+<% else %>
+<%= form_for(@user, remote: true) do |f| %>
+<div><%= hidden_field_tag :admin, true %></div>
+<%= f.submit 'Set Admin', class: "btn btn-outline-primary" %>
+<% end %>
+<% end %>

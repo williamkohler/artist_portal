@@ -1,0 +1,27 @@
+<div class="record-wrapper user-index-name">
+  <h4><%= link_to contact.name, contact_path(contact) %></h4>
+  <h5 class="faded-title"><%= contact.job_title %></h5>
+  <h5><%= icon('fas', 'hashtag') %>
+    <%= link_to (pluralize(contact.promoter_shows.count, 'shows')),
+                 shows_contact_path(contact) %>
+  </h5>
+  <h5><%= icon('fas', 'phone') %>
+    <%= contact.phone %></h5>
+  <h5><%= icon('fas', 'mobile-alt')%>
+    <%= contact.mobile %></h5>
+  <h5>
+    <%= icon('fas', 'envelope') %>
+    <%= link_to contact.email, "mailto:#{contact.email}" %>
+  </h5>
+  <h5>
+    <%= icon('fas','edit') %>
+    <%= link_to 'edit', edit_contact_path(contact) %>
+  </h5>
+  <% if params[:controller] == 'venues' %>
+  <h5><%= icon('fas', 'times') %>
+    <%= link_to 'remove',
+    contact_venue_relationship_path(ContactVenueRelationship.find_by(
+      contact_id: contact.id, venue_id: @venue.id)), method: :delete %>
+  </h5>
+  <% end %>
+</div>

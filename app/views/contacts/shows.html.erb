@@ -1,0 +1,5 @@
+<h2 class="index-title">
+  <%= link_to "Shows with #{@contact.name}", (contact_path @contact) %>
+</h2>
+<%= render partial: 'shows/show_summary', collection: @shows, as: :deal %>
+<%= will_paginate @shows, class: 'center' %>

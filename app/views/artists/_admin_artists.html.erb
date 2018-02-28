@@ -1,0 +1,24 @@
+<h3>Artists</h3>
+<div class="row">
+  <div class="col-md-4">
+    <div>
+    <% @artists.each do |artist| %>
+
+    <div class="artist-block">
+      <%= link_to (album_for artist), artist_path(artist)%>
+      <span><%= link_to artist.name, artist_path(artist) %></span>
+      <br>
+      <span><%= link_to "delete", artist, method: :delete %></span>
+    </div>
+    <% end %>
+  </div>
+    <%= will_paginate %>
+  </div>
+  <div class="col-md-8">
+    <div>
+      <% @artists.each do |artist| %>
+        <%= link_to (album_for artist, size: 2), artist_path(artist)%>
+      <% end %>
+    </div>
+  </div>
+</div>

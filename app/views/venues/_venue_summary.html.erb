@@ -1,0 +1,18 @@
+<div class="record-wrapper user-index-name">
+  <h4><%= link_to venue.name, venue_path(venue) %></h4>
+  <h5 class="faded-title"><%= icon('fas', 'users') %>
+    <%= number_with_delimiter(venue.capacity) %>
+    capacity
+  </h5>
+  <h5><%= icon('fas', 'home') %>
+    <%= venue.address %>
+  </h5>
+  <% if params[:controller] == 'contacts' %>
+    <h5><%= icon('fas', 'times') %>
+      <%= link_to 'remove',
+      contact_venue_relationship_path(
+        ContactVenueRelationship.find_by(
+          contact_id: @contact.id, venue_id: venue.id)), method: :delete %>
+    </h5>
+  <% end %>
+</div>

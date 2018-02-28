@@ -1,0 +1,31 @@
+<div class="artist-header-wrapper">
+  <div class="left-artist-header">
+    <h1 class="left-text"><%= @artist.name %></h1>
+    <h5>
+      <%= @count.humanize.titleize %>
+      upcoming
+      <%= "engagement".pluralize(@count) %></h5>
+    <h5>
+      <%= @shows.count.humanize.titleize %>
+      <%= "engagement".pluralize(@shows.count) %>
+      this month</h5>
+    <h4>
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>
+      <%= link_to ">", date: @date.next_month %>
+    </h4>
+    <b>
+      <% if @cal_selection == 'month' %>
+        <span><%= link_to "switch calendar view", cal: :grid,
+                                                  date: @date %></span>
+      <% else %>
+        <span><%= link_to "switch calendar view", cal: :month,
+                                                  date: @date %></span>
+      <% end %>
+    </b>
+
+  </div>
+  <div class="right-artist-header">
+    <%= album_for @artist, size: 2 %>
+  </div>
+</div>

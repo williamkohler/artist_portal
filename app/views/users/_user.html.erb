@@ -1,0 +1,14 @@
+<div class="record-wrapper user-index-name">
+  <h4><%= link_to user.name, user_path(user) %></h4>
+  <h5>
+    <%= icon('fas', 'envelope') %>
+    <%= link_to user.email, "mailto:#{user.email}" %>
+  </h5>
+  <% if current_user.admin %>
+
+    <h5><%= icon('fas', 'times') %>
+      <%= link_to 'delete', user, method: :delete,
+                                  data: { confirm: 'You sure?' } %>
+    </h5>
+  <% end %>
+</div>

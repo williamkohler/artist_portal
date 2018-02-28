@@ -1,0 +1,57 @@
+<div>
+  <table class="table table-hover">
+    <tr class="warning">
+      <th>Date</th>
+      <th>Engagement</th>
+      <th>Fee</th>
+      <th>Extras</th>
+    </tr>
+    <% month_array(date: @date).each do |date| %>
+      <% if @sorted_shows[date] %>
+        <% show = @sorted_shows[date][0] %>
+          <% if date == Date.today %>
+            <tr class="info">
+            <% else %>
+              <tr class="success">
+              <% end %>
+              <td>
+                <b><%= date.strftime('%a, %b %d') %>
+                  <b></td>
+                  <td>
+                    <b><%= link_to show[:venue_name], artist_path(
+                                  @artist,
+                                  date:   params[:date],
+                                  anchor: show.deal_id)
+                       %></b><br>
+                    <b><%= address_builder show %></b>
+                  </td>
+                  <td>
+                    <b><%= number_to_currency (show[:amount].to_i) %></b>
+                  </td>
+                  <td>
+                    <b><%= hubspot_extras_code show %>
+                      <b></td>
+                    <% else %>
+                      <% if date == Date.today %>
+                        <tr class="info">
+                          <td>
+                            <b><%= date.strftime('%a, %b %d') %></b>
+                          </td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% else %>
+                        <tr>
+                          <td>
+                            <b><%= date.strftime('%a, %b %d') %></b>
+                          </td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </table>
+              </div>

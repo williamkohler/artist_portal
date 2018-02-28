@@ -1,0 +1,17 @@
+radiohead:
+  name: Radiohead
+  from_hubspot: false
+  slug: radiohead
+  website: http://www.example.com
+
+james:
+  name: James Blake
+  from_hubspot: false
+  slug: james-blake
+  website: http://www.example.com
+
+bill:
+  name: Bill Charlap
+  from_hubspot: true
+  slug: james-blake
+  website: http://www.example.com
