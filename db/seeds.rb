@@ -69,7 +69,7 @@ developer_user.assign(Artist.find_by(name: 'Baroness'))
 
 
 User.all.each do |user|
-  6.times do
+  12.times do
     artist = Artist.find(rand(1..Artist.count))
     user.assign(artist) if user.assigned_artists.exclude?(artist)
   end
