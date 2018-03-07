@@ -358,7 +358,7 @@ input {
     margin: 10px 0;
   }
   a {
-    color: inherit;
+    color: $app-blue;
     &:hover
     {
       color: $app-orange;
@@ -525,7 +525,8 @@ input {
     padding-left: 6px;
   }
   a {
-    color: inherit;
+    // color: inherit;
+    color: $app-blue;
     &:hover {
       color: $app-orange;
       text-decoration: none;
