@@ -5,23 +5,28 @@
 To get started with the app, clone the repo and then install the needed gems:
 
 ```
-$ bundle install --without production
+$ bundle install
 ```
 
-Next, migrate the database:
+Migrate the database:
 
 ```
 $ rails db:migrate
 ```
 
-Finally, run the test suite to verify that everything is working correctly:
+Seed the database:
+
+```
+$ rails db:seed
+```
+
+Run the test suite to verify that everything is working correctly:
 
 ```
 $ rails test
 ```
 
-
-If the test suite passes, you'll be ready to run the app in a local server:
+Finally run the app on a local server:
 
 ```
 $ rails server
