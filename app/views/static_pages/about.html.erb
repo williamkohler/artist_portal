@@ -1,45 +1,49 @@
 <% provide(:title, "About") %>
-  <h1 class="left">About</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <p>
-        <h3>The Artist Portal</h3>
-        The Artist Portal is an online application that allows agents, artists
-        managers, publicists, tour managers, etc to view upcoming itineraries
-        for touring musicians. Administrative users can create new artist
-        accounts, add shows and assign users
-        viewing privileges for specific artists. Itineraries consist of a
-        month summary view (available as a calendar or grid view), followed by
-        individual show summaries that provide information for each upcoming
-        performance.
-      </p>
-      <p>
-        <h3>Administrative Users</h3>
-        Administrative users can do the following:
-        <ul>
-          <li>Add & remove artists</li>
-          <li>Assign artists to users</li>
-          <li>Assign other administrative users</li>
-          <li>Add shows</li>
-          <li>View all users</li>
-          <li>View all artists</li>
-          <li>View all shows</li>
-        </ul>
-      </p>
-      <p>
-        <h3>Standard Users</h3>
-        When a standard user logs into the application, they are brought to
-        their home page with a list of their assigned artists. The user can then
-         click on any of their assigned artists & view the associated itinerary.
-      </p>
-      <p>
-        <h3>Questions?</h3>
-        Feel free to reach out to
-        <%= link_to 'Bill Kohler',
-        'mailto:bkohler4@gmail.com?subject=Artist Portal' %>
-        with any questions.
-      </p>
+
+<div class="about-title">
+  <h3>About</h3>
+  <div class="about-div">
+    The Artist Portal is an online application that allows, artists managers,
+    publicists, agents, tour managers, etc to view upcoming itineraries for
+    touring musicians. Each artist page has a listing of upcoming performances
+    for the selected month. The information is summarized with both a list or
+    calendar view with the details of each show provided below.
+  </div>
+</div>
+  <div class="summary">
+    <h4>Admin Users</h4>
+    <div class="about-div">
+      Admin users have special privileges in the Artist Portal. They are
+      granted deletion privileges to remove all records from the application.
     </div>
-    <div class="col-md-6">
+    <div class="about-div">
+      Admin users can also assign artists to others users. When a user is
+      assigned an artist, the assigned user becomes responsible for watching
+      and updating the artist's itinerary. When a user logs on they see all
+      artists that have been assigned and can quickly view their itineraries.
+    </div>
+    <h4>Contacts and Venues</h4>
+    <div class="about-div">
+      The Artist Portal also has contact and venue records. Contact and venue
+      records can be connected so that a user can see what contacts work with
+      what venues and vise versa. Contact and venue records also provide a
+      count of how many shows they are associated with. A user can also view
+      the shows associated with a record by clicking on the show count
+      hyperlink.
+    </div>
+    <h4>Shows</h4>
+    <div class="about-div">
+      When a show is created, the user will select an associated artist, venue,
+      and contact. Once the show record has successfully been created, the show
+      summary will appear on the assigned artist's itinerary. The show record
+      is also accessible by visiting the assigned contact or venue record as
+      well
+    </div>
+    <h4>Additional Questions</h4>
+    <div class="about-div">
+      If there are any additional questions, feel free to reach out to
+      <%= link_to 'Bill Kohler',
+      'mailto:bkohler4@gmail.com?subject=Artist Portal' %>
+      with any questions.
     </div>
   </div>

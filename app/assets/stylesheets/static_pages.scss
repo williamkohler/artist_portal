@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$app-blue: #3097fd;
+
 .full-hero {
   background-color: #c7dbfc;
   background-size: cover;
@@ -92,5 +94,23 @@
     margin: 2px;
     padding: 2px;
     width: 20%;
+  }
+}
+
+/* About Page */
+.about-div {
+  margin-bottom: 12px;
+  padding-left: 6px;
+  text-align: justify;
+  a {
+    color: $app-blue;
+  }
+}
+
+.about-title {
+  margin-bottom: 16px;
+  padding: 6px;
+  h3 {
+    padding-left: 6px;
   }
 }
