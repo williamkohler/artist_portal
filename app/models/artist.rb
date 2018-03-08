@@ -37,8 +37,12 @@ class Artist < ApplicationRecord
 
     # Search for an artist.
     def search(search)
-      Artist.where('name like ?', "%#{search}%")
+      Artist.where("name ILIKE ?", "%#{search}%")
     end
+
+    # def search(search)
+    #   Artist.where('name like ?', "%#{search}%")
+    # end
 
     # Returns a hash of the roster's top songs.
     # Key is the artist name / value is the song name.
