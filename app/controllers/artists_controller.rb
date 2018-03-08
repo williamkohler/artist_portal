@@ -32,7 +32,7 @@ class ArtistsController < ApplicationController
     else
       flash[:danger] = "Unable to add #{params[:artist][:name]}"
     end
-    redirect_to artists_path
+    render new_artist_path
   end
 
   def edit

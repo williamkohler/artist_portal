@@ -7,6 +7,7 @@ class ShowsController < ApplicationController
     @show = Show.new
   end
 
+  # TODO: fix create action
   def create
     @artist = Artist.find(show_params[:artist_id])
     @show = @artist.shows.build(show_params)
