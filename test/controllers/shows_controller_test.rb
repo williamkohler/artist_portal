@@ -60,7 +60,7 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
                                          artist_id: @radiohead.id,
                                          capacity: '250',
                                          contract_due: Date.today - 90,
-                                         fee: 10000,
+                                         fee: 10_000,
                                          gross_potential: '$10,000',
                                          number_of_shows: 1,
                                          promoter_id: @contact.id,
@@ -72,6 +72,29 @@ class ShowsControllerTest < ActionDispatch::IntegrationTest
                                                        '/ $25.00 (day of show)',
                                          venue_id: @venue.id } }
     end
+  end
+
+  test 'artist is required to create show' do
+    log_in_as @standard_user
+    get new_show_path
+    assert_no_difference 'Show.count' do
+      post shows_path, params: { show: { artist_id: '',
+                                         backend: 'flat guarantee',
+                                         agent: 'Agent Name',
+                                         capacity: '250',
+                                         contract_due: Date.today - 90,
+                                         fee: 10_000,
+                                         gross_potential: '$10,000',
+                                         number_of_shows: 1,
+                                         promoter_id: @contact.id,
+                                         production_id: @contact .id,
+                                         set_length: 'seventy-five minutes',
+                                         start_date: Date.today,
+                                         start_time: '9pm',
+                                         ticket_scale: '$20.00',
+                                         venue_id: @venue.id } }
+    end
+    assert flash[:warning] = 'An active artist must be selected.'
   end
 
   test 'admin users should be able to delete shows' do

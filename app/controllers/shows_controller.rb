@@ -1,13 +1,13 @@
 ## app/controllers/shows_controller.rb
 class ShowsController < ApplicationController
   before_action :form_collections, only: %i[new edit]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user,       only: :destroy
+  before_action :artist_check,     only: :create
 
   def new
     @show = Show.new
   end
 
-  # TODO: fix create action
   def create
     @artist = Artist.find(show_params[:artist_id])
     @show = @artist.shows.build(show_params)
@@ -15,7 +15,7 @@ class ShowsController < ApplicationController
       flash[:success] = 'Show created.'
       redirect_to artist_path @artist
     else
-      @artists = Artist.all
+      form_collections
       flash[:warning] = 'Unable to create show.'
       render 'new'
     end
@@ -69,7 +69,17 @@ class ShowsController < ApplicationController
 
   # Before filters
 
-  # Values for form drop downs
+  # Make sure an artist has been selected.
+  def artist_check
+    if show_params[:artist_id].empty?
+      flash[:warning] = 'An active artist must be selected.'
+      form_collections
+      @show = Show.create(show_params)
+      render 'new'
+    end
+  end
+
+  # Values for form drop downs.
   def form_collections
     @artists = Artist.all
     @venues = Venue.all
