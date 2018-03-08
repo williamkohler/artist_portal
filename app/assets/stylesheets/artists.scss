@@ -103,6 +103,10 @@ $app-yellow: #FCF8E4;
 
   a {
     display: block;
+    &:hover {
+      color: $app-orange;
+      text-decoration: none;
+    }
   }
 
   span {
