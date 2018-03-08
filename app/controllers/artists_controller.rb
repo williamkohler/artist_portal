@@ -10,7 +10,8 @@ class ArtistsController < ApplicationController
 
   def index
     if params[:search]
-      @artists = Artist.search(params[:search])
+      @artists = Artist.search(params[:search]).paginate(page: params[:page],
+                                                         per_page: 18)
     else
       @artists = Artist.all.paginate(page: params[:page], per_page: 18)
     end
