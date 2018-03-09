@@ -29,10 +29,12 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
     if @artist.save
       flash[:success] = "Created #{params[:artist][:name]}."
+      redirect_to @artist
     else
       flash[:danger] = "Unable to add #{params[:artist][:name]}"
+      render new_artist_path
     end
-    render new_artist_path
+
   end
 
   def edit

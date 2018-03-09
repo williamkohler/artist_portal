@@ -26,7 +26,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     if @venue.save
       flash[:success] = "#{@venue.name} successfully created."
-      redirect_to venues_path
+      redirect_to @venue
     else
       flash[:warning] = 'Unable to create venue.'
       render 'new'
