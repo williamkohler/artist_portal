@@ -13,9 +13,14 @@ class Venue < ApplicationRecord
   default_scope -> { order(name: :asc) }
   before_save :downcase_website
 
-  # Search for a venue.
+  # Search for a venue by name.
   def self.search(search)
-    Venue.where('name like ?', "%#{search}%")
+    if Rails.env.development?
+      query ='name like ?'
+    else
+      query = 'name ilike ?'
+    end
+    Venue.where(query, "%#{search}%")
   end
 
   # Shows that occur at the venue.

@@ -35,14 +35,15 @@ class Artist < ApplicationRecord
       names
     end
 
-    # Search for an artist.
+    # Search for an artist by name.
     def search(search)
-      Artist.where("name ILIKE ?", "%#{search}%")
+      if Rails.env.development?
+        query ='name like ?'
+      else
+        query = 'name ilike ?'
+      end
+      Artist.where(query, "%#{search}%")
     end
-
-    # def search(search)
-    #   Artist.where('name like ?', "%#{search}%")
-    # end
 
     # Returns a hash of the roster's top songs.
     # Key is the artist name / value is the song name.

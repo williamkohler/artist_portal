@@ -30,8 +30,14 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
+  # Search for a user.
   def search(search)
-    users = User.where('name like ?', "%#{search}%")
+    if Rails.env.development?
+      query ='name like ?'
+    else
+      query = 'name ilike ?'
+    end
+    User.where(query, "%#{search}%")
   end
 
   # Returns a random token.
@@ -85,13 +91,13 @@ end
   end
 
   # Assign an artist to a user.
-  def assign (artist)
+  def assign(artist)
     artist_relationship.create(artist_id: artist.id,
                                user_id: id)
   end
 
   # Unassign an artist to a user.
-  def unassign (artist)
+  def unassign(artist)
     relationship = ArtistRelationship.where(artist_id: artist.id,
                                             user_id: id)
     artist_relationship.delete relationship

@@ -10,8 +10,14 @@ class Contact < ApplicationRecord
   default_scope -> { order(name: :asc) }
   before_save :downcase_email
 
+  # Search for a contact by name.
   def self.search(search)
-    Contact.where('name like ?', "%#{search}%")
+    if Rails.env.development?
+      query ='name like ?'
+    else
+      query = 'name ilike ?'
+    end
+    Contact.where(query, "%#{search}%")
   end
 
   # A contact's name & email
