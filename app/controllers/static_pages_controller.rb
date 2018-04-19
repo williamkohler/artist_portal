@@ -1,7 +1,7 @@
 ## app/controllers/static_pages_controller.rb
 class StaticPagesController < ApplicationController
   include ShowsHelper
-  before_action :logged_in_user, only: :test
+  before_action :logged_in_user, only: %i[test about]
 
   def home
     redirect_to current_user if logged_in?
