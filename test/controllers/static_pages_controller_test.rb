@@ -13,6 +13,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get about' do
+    log_in_as(@user)
     get about_path
     assert_response :success
     assert_select 'title', 'About | Artist Portal'

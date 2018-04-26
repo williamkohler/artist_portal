@@ -104,14 +104,14 @@ p {
 .header-logo {
   margin: 0 4px;
   a {
-    background-image: image-url("drum");
+    background-image: image-url("drum.svg");
     display: inline-block;
     height: 50px;
     text-indent: -9999px;
     width: 50px;
 
     &:hover {
-      background-image: image-url("orange-drum-and-sticks");
+      background-image: image-url("orange-drum-and-sticks.svg");
     }
   }
 }
